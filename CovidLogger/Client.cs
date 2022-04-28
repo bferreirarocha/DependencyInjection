@@ -8,8 +8,15 @@ namespace CovidLogger
         {
             Console.WriteLine("Hello Bruno!");
             ICovidlogger logger;
-            int contaggi = 500;
-            if (contaggi >= 500)
+            int contaggi = 0;
+
+            for (int i = 0; i < 500; i++)
+            {
+                contaggi = i;
+                Console.WriteLine(contaggi);
+            }
+
+            if (contaggi >= 400)
             {
                 logger = new ReZone();
             }

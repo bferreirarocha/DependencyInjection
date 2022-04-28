@@ -14,7 +14,7 @@ namespace Tests
             bool test = true;
 
             // Error. Operator '+' cannot be applied to operands of type 'int' and 'bool'.
-            int c = a + test;
+            // int c = a + test;
         }
     }
 }
