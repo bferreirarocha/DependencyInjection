@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidLogger", "CovidLogger\CovidLogger.csproj", "{EB179E5B-062D-44AB-AF53-8937CA183B38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidLogger", "CovidLogger\CovidLogger.csproj", "{EB179E5B-062D-44AB-AF53-8937CA183B38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translator", "Translator\Translator.csproj", "{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Translator", "Translator\Translator.csproj", "{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6263D515-1E8E-4AEB-8EF4-2260AD8494F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6263D515-1E8E-4AEB-8EF4-2260AD8494F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6263D515-1E8E-4AEB-8EF4-2260AD8494F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6263D515-1E8E-4AEB-8EF4-2260AD8494F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6263D515-1E8E-4AEB-8EF4-2260AD8494F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

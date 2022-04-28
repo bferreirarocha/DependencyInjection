@@ -1,10 +1,10 @@
 ﻿namespace Translator
 {
-    internal class Client
+    internal class LawyerTranslation
     {
         static void Main(string[] args)
         {
-            //TODO
+            TranslatorService translation = new TranslatorService(new EnglishTranslator());
         }
     }
 }

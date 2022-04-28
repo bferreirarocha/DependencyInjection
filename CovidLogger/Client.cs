@@ -6,7 +6,7 @@ namespace CovidLogger
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello Bruno!");
             ICovidlogger logger;
             int contaggi = 500;
             if (contaggi >= 500)
