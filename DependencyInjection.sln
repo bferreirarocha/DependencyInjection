@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidLogger", "CovidLogger\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeService", "Translator\OfficeService.csproj", "{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translation.IoC", "TranslationService\Translation.IoC.csproj", "{D55AEF6F-359A-45F4-A918-DC896E31FD7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Translation.IoC", "TranslationService\Translation.IoC.csproj", "{D55AEF6F-359A-45F4-A918-DC896E31FD7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translation", "Translation\Translation.csproj", "{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationService", "Translation\TranslationService.csproj", "{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

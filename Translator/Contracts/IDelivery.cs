@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Translator.Contracts
+namespace OfficeService.Contracts
 {
     public interface IDelivery
-    {
-        Task<DateTime> OrderCoffe(Action<string> alert);
-        DateTime OrderLunch();
-        DateTime OrderDinner();
+    {        
+        DateTime ReturnOrder();
+        Task<bool> Deliver(object delivery);
+      
 
+    }
+    public interface ICoffeShopDelivery: IDelivery
+    {
+        Task<bool> OrderCoffe(Action<string> action);
     }
 }

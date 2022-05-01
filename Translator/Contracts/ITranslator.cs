@@ -1,4 +1,4 @@
-﻿namespace Translator.Contracts
+﻿namespace OfficeService.Contracts
 {
     public interface ITranslator
     {

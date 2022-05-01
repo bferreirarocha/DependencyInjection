@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Translator.Contracts;
+using OfficeService.Contracts;
 
 namespace Deliveries
 {
-    public abstract class Delivery
+    public abstract class Delivery: IDelivery
     {
         public DateTime ReturnOrder()
         {
@@ -17,39 +19,72 @@ namespace Deliveries
                 orderTime.Minute, 0
                 ).AddHours(1);
         }
-        public async Task<bool> Deliver()
+        public async Task<bool> Deliver(object delivery)
         {
+            Console.ForegroundColor = ConsoleColor.Red;         
+              
+            await Task.Delay(2000);
             Console.WriteLine("Ordine spedito....");
-            await Task.Delay(10000);
-            Console.WriteLine("Consegna efettuta! Grazie per avver scelto noi!");
-            return true;
+            await Task.Delay(20000);
+            Console.ResetColor();
+            Console.WriteLine( $"Consegna efettuta! Grazie per avver scelto {delivery}");
+            await Task.Delay(5000);
+
+            return true;    
+
         }
-
-
-    }
-    public class Starbucks : Delivery, IDelivery
-    {
-
-        public async Task<DateTime> OrderCoffe(Action<string> alert)
-        {
-            alert.DynamicInvoke($"Ordine del caffe efettuato con  {this.GetType().Name}..");
-            // Console.WriteLine($"Ordine del caffe efettuato con  {this.GetType().Name}..");
-            await Deliver();
-            //consegna il messaggio con l'ora di consegna 
-            // Fai la preparazione dle caffe in parallelo 
-
-            return base.ReturnOrder();
-        }
+        
         public DateTime OrderLunch()
         {
             Console.WriteLine($"Ordine del caffe efettuato con  {this.GetType().Name}..");
-            return base.ReturnOrder();
+            return ReturnOrder();
         }
         public DateTime OrderDinner()
         {
             Console.WriteLine($"Ordine del caffe efettuato con  {this.GetType().Name}..");
-            return base.ReturnOrder();
+            return ReturnOrder();
         }
+    }
+    public class Starbucks : Delivery, ICoffeShopDelivery
+    {
+
+        public Starbucks():base()
+        {
+
+        }
+        //public async Task OrderCoffe(Action<string> alert)
+        //{
+        //    StringBuilder message = new StringBuilder();
+        //    message.AppendLine($"Ordine del caffe efettuato con  {this.GetType().Name}..");
+        //    message.AppendLine($"Arriva alle ore {base.ReturnOrder()}");
+        //    alert(message.ToString());
+        //    Task<string> ts=  Deliver(this.GetType().Name);
+        //    string s = await ts;
+        //    alert(s);
+        //}
+        public async Task<bool> OrderCoffe(Action<string> action)
+        {
+            string message;
+             Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Ordine del caffe efettuato con  {this.GetType().Name}..");
+            Console.WriteLine($"Arriva alle ore {base.ReturnOrder()}");
+            Task<bool> t = Deliver(this.GetType().Name); 
+            var result = await t;
+
+            if (result)
+            {
+                message = " CITOFONO -> Il tuo ordine è stato consegnto";
+                action(message);
+                await Task.Delay(5000);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
     }
 
 }

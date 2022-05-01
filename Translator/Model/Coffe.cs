@@ -2,8 +2,7 @@
 {
     public struct Coffe
     {
-        public CoffeeType order { get; set; }
-
+        public CoffeeType type { get; set; }
     }
     public enum CoffeeType
     {

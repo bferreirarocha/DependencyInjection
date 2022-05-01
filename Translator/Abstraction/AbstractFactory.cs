@@ -1,4 +1,4 @@
-﻿using Translator.Contracts;
+﻿using OfficeService.Contracts;
 
 namespace Translator.Abstraction
 {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Translator.Contracts;
+using OfficeService.Contracts;
 
-namespace Translator
+namespace OfficeService.Implementation
 {
 
     public class EnglishTranslator : ITranslator
@@ -10,7 +10,7 @@ namespace Translator
         public string Translate(string text)
         {
             Console.WriteLine("ENGLISH TRANSLATION");
-            return "Traslation of the text";
+            return "Traslation of the text in English";
         }
 
     }
@@ -19,7 +19,7 @@ namespace Translator
         public string Translate(string text)
         {
             Console.WriteLine("GERMAN TRANSLATION");
-            return "Traslation of the text";
+            return "Traslation of the text in German";
 
         }
     }
@@ -28,7 +28,7 @@ namespace Translator
         public string Translate(string text)
         {
             Console.WriteLine("SPANISH TRANSLATION");
-            return "Traslation of the text";
+            return "Traslation of the text in Spanish";
 
         }
     }

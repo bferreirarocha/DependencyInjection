@@ -7,36 +7,36 @@ namespace Translation
         static void Main(string[] args)
         {
             LawyerOffice lawyerOfficeMilano = new LawyerOffice();
-            lawyerOfficeMilano.startTanslation("Hello world");
-
-
-            LawyerOffice lawyerOfficeParigi = new LawyerOffice();
-            lawyerOfficeParigi.startTanslation("早上好");
+            lawyerOfficeMilano.startTanslation(LANGUAGE.SPANISH,"HOLA!");         
         }
     }
     public class LawyerOffice
-    {
-        ITranslator[] _translator = new ITranslator[3];
-        Dictionary<string, ITranslator> _translatorList = new Dictionary<string, ITranslator>();
-
-        string _DailyTanslation;
-
-        public void startTanslation(string text)
+    {    
+        public TranslationOffice _translationOffice { get; set; }   
+        public TranslationDelivery _deliveryOffice { get; set; }
+        public void startTanslation(LANGUAGE lang, string text)
         {
-            //TranslationService translator = new TranslationService(new EnglishTranslator());             
-            _DailyTanslation = _translator[0].Translate(text);
-
+            _translationOffice.Translate(lang,text);
         }
         public LawyerOffice()
         {
-            _translatorList.Add("English", new EnglishTranslator());
-            _translatorList.Add("spanish", new SpanishTranslator());
-            _translatorList.Add("German", new GermanTranslator());
-
-            /// Se non è piu disponibile la traduzione io posso cambiare la  
-            /// class cosicchè chi la userà avrà il suo cambiamento ma,
-            /// chi prima del cambiamento non saprà nulla del suo cambiamento 
 
         }
+    } 
+    public class TranslationOffice
+    {
+
+        OfficeService _onlineStore = new OfficeService();
+        public string Translate(LANGUAGE lang, string text)
+        {
+            return _onlineStore.Translate(lang, text);
+        }
+    }
+    public enum LANGUAGE
+    {
+        ENG,
+        GERMAN,
+        SPANISH      
+
     }
 }

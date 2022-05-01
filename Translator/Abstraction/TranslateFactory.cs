@@ -1,6 +1,7 @@
-﻿using Translator.Contracts;
+﻿using OfficeService.Contracts;
+using OfficeService.Implementation;
 
-namespace Translator
+namespace OfficeService.Abstraction
 {
     public class TranslatorFactory
     {

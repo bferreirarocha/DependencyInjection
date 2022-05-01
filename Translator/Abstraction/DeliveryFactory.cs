@@ -1,11 +1,12 @@
 ﻿using Deliveries;
-using Translator.Contracts;
+using OfficeService.Contracts;
 
-namespace Translator
+
+namespace OfficeService
 {
     public class DeliveryFactory
     {
-        public static IDelivery getDelivery(DELIVERYSERVICES order)
+        public static ICoffeShopDelivery getDelivery(DELIVERYSERVICES order)
         {
             switch (order)
             {
