@@ -1,5 +1,8 @@
 ﻿using OfficeService.Abstraction;
+using OfficeService.Contracts;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,7 +29,7 @@ namespace OfficeService
     {
         public string _serviceName;
         public ILawyerOffice _bossOffice;
-        public async Task Translate(SUPPOREDLANGUAGES language, string text)
+        public async Task Translate(Languages language, string text)
         {    
             string Translation = TranslatorFactory.getTranslator(language).Translate(text);
             await Task.Delay(3000);            
@@ -37,11 +40,17 @@ namespace OfficeService
             _bossOffice = office;
             _serviceName = _bossOffice._name;
         }
-        public async Task OrderCoffee(DELIVERYSERVICES order)
+        public async Task OrderCoffee(DeliveryType order)
         {
-            /// Quando la consegna è effetta  esegui  il metodo per avviare che il caffe è qui! 
-             var result = await  DeliveryFactory.getDelivery(order)
-                 .OrderCoffe(Avvisami);
+              var delivery = DeliveryFactory.getDelivery(order);
+              Task<List<string>> menu = delivery.GetMenu();
+              List<string> list = await menu;
+              Console.WriteLine("Ecco il Menu:");
+              list?.ForEach(x => Console.WriteLine("     "+x));
+              var choose = list.FirstOrDefault();
+              await Task.Delay(1000);
+              var result = await delivery.OrderCoffe(choose,Avvisami);
+
             if (result)
             {
                  Console.ForegroundColor = ConsoleColor.Blue;

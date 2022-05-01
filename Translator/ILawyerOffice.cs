@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeService.Contracts;
+using System;
 
 namespace OfficeService
 {
@@ -6,16 +7,16 @@ namespace OfficeService
     {
         public string _name { get;  set; }
         public OfficeService _myService { get; set; }
-        void BringACoffee(DELIVERYSERVICES order);
+        void BringACoffee(DeliveryType order);
         void GiveMeAFeedBack(string message);
-        void TranslateTHIS(SUPPOREDLANGUAGES lang, string text);
+        void TranslateTHIS(Languages lang, string text);
     }
       public abstract class LawyerOffice: ILawyerOffice
         {
         public string _name { get; set; }
         public OfficeService _myService { get; set; }
 
-        public void BringACoffee(DELIVERYSERVICES order)
+        public void BringACoffee(DeliveryType order)
         {
             _ = _myService.OrderCoffee(order);
         }
@@ -24,7 +25,7 @@ namespace OfficeService
             _myService = new OfficeService(this);
             _myService._serviceName = _name;
         }
-        public void TranslateTHIS(SUPPOREDLANGUAGES lang, string text)
+        public void TranslateTHIS(Languages lang, string text)
         {
             _ = _myService.Translate(lang, text);
         }
