@@ -1,5 +1,6 @@
 ﻿using OfficeService.Abstraction;
 using OfficeService.Contracts;
+using OfficeService.Implementaton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,22 +28,22 @@ namespace OfficeService
     #endregion 
     public class OfficeService
     {
-        public string _serviceName;
-        public ILawyerOffice _bossOffice;
-        public async Task Translate(Languages language, string text)
+        public string _officeName;
+        public LawyerOffice _office;
+        public void Translate(Languages language, string text, ILawyer lawyer)
         {    
             string Translation = TranslatorFactory.getTranslator(language).Translate(text);
-            await Task.Delay(3000);            
-            _bossOffice.GiveMeAFeedBack("Il tuo testo è pronto: "+ Translation); // ->> accopiamento del nome della fuzione
+            Thread.Sleep(2000);
+            lawyer.GiveMeAFeedBack("Il tuo testo è pronto: "+ Translation); // ->> accopiamento del nome della fuzione
         }
-        public OfficeService(ILawyerOffice office)  
+        public OfficeService(LawyerOffice office)  
         {
-            _bossOffice = office;
-            _serviceName = _bossOffice._name;
+            _office = office;
+            _officeName = _office._name;
         }
-        public async Task OrderCoffee(DeliveryType order)
+        public async Task OrderCoffee(DeliveryType order, ILawyer lawyer)
         {
-              var delivery = DeliveryFactory.getDelivery(order);
+              var delivery = DeliveryFactory.getDelivery(order);    
               Task<List<string>> menu = delivery.GetMenu();
               List<string> list = await menu;
               Console.WriteLine("Ecco il Menu:");
@@ -53,8 +54,8 @@ namespace OfficeService
 
             if (result)
             {
-                 Console.ForegroundColor = ConsoleColor.Blue;
-                _bossOffice.GiveMeAFeedBack("Il tuo caffe è arrviato!");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                lawyer.GiveMeAFeedBack($"Ciao {lawyer.Name}. Il tuo caffe è arrviato!");
                 Console.ResetColor();
             }           
            

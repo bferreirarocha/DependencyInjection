@@ -27,10 +27,10 @@ namespace Deliveries
 
             await Task.Delay(2000);
             Console.WriteLine("Ordine spedito....");
-            await Task.Delay(20000);
+            await Task.Delay(10000);
             Console.ResetColor();
             Console.WriteLine($"Consegna efettuta! Grazie per avver scelto {delivery}");
-            await Task.Delay(5000);
+            await Task.Delay(3000);
             return true;
         }
         //public List<T> GetMenu<T>()

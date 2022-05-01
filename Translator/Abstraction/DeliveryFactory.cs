@@ -11,11 +11,11 @@ namespace OfficeService
             switch (order)
             {
                 case DeliveryType.COFFEE:
-                    return new Starbucks();               
+                    return (ICoffeShopDelivery) new Starbucks();               
                 default:
                     return null;
             }
-        }
+        }   
 
     }
 }

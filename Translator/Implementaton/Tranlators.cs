@@ -27,7 +27,7 @@ namespace OfficeService.Implementation
     {
         public string Translate(string text)
         {
-            Console.WriteLine("SPANISH TRANSLATION");
+            Console.WriteLine("Traslatin from -> SPANISH....");
             return "Traslation of the text in Spanish";
 
         }
