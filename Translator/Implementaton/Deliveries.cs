@@ -7,10 +7,10 @@ using OfficeService.Contracts;
 
 namespace Deliveries
 {
-    public abstract class Delivery : IDelivery
+    public abstract class FoodDelivery : IFoodDelivery
     {
         public enum MENU{ }
-        public DateTime ReturnOrder()
+        public DateTime ReturnDeliveryTime()
         {
             var orderTime = DateTime.Now;
             return new DateTime(
@@ -44,7 +44,7 @@ namespace Deliveries
 
     }
     
-    public class Starbucks : Delivery, ICoffeShopDelivery
+    public class Starbucks : FoodDelivery, ICoffeShopDelivery
     {
         public new enum MENU
         {
@@ -56,7 +56,7 @@ namespace Deliveries
             string message;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Ordine del caffe {MenuChoice} efettuato con  {this.GetType().Name}..");
-            Console.WriteLine($"Arriva alle ore {base.ReturnOrder()}");
+            Console.WriteLine($"Arriva alle ore {base.ReturnDeliveryTime()}");
             Task<bool> t = Deliver(this.GetType().Name); 
             var result = await t;
 
@@ -86,7 +86,7 @@ namespace Deliveries
 
 
     }
-    public class McDonalds : Delivery, ILunchDelivery
+    public class McDonalds : FoodDelivery, ILunchDelivery
     {
         public new enum MENU
         {
@@ -98,7 +98,7 @@ namespace Deliveries
             string message;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Ordine del caffe efettuato con  {this.GetType().Name}..");
-            Console.WriteLine($"Arriva alle ore {base.ReturnOrder()}");
+            Console.WriteLine($"Arriva alle ore {base.ReturnDeliveryTime()}");
             Task<bool> t = Deliver(this.GetType().Name);
             var result = await t;
 

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace OfficeService.Contracts
 {
-    internal interface IDelivery
-    { 
-        DateTime ReturnDeliveryTime();
-        Task<bool> Deliver(object delivery);
-        void GetOrder();
+    public interface IEmployee
+    {
+        void GiveMeAFeedBack(string message);       
     }
 }

@@ -6,14 +6,14 @@ namespace OfficeService
 {
     public class DeliveryFactory
     {
-        public static IDelivery GetDelivery(DeliveryType order)
+        public static IFoodDelivery GetFoodDelivery(DeliveryType order)
         {
             switch (order)
             {
                 case DeliveryType.COFFEE:
                     return new Starbucks();               
                 default:
-                    return null;
+                    return null;    
             }
         }
         public static IOfficeTasks GetTasksDelivery(DocType doc)

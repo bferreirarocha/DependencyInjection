@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace OfficeService.Implementaton
 {
-    public class Lawyer : ILawyer
+    public class Lawyer : Employee, ILawyer
     {   
-        public string Name { get; set; }    
-        public void GiveMeAFeedBack(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(message);
-            Console.ResetColor();
-        }
+        public string Name { get; set; }
+        public void Judget() { }
     }
 
 }
+ 

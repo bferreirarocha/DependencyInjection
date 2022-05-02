@@ -1,9 +1,8 @@
 ﻿namespace OfficeService.Contracts
 {
-    public interface ILawyer
+    public interface ILawyer: IEmployee
     {
         public string Name { get; set; }
-
-        void GiveMeAFeedBack(string message);
+        public void Judget();
     }
 }

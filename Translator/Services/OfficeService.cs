@@ -26,7 +26,7 @@ namespace OfficeService
     //    }
     //}
     #endregion 
-    public class OfficeService
+    public class OfficeService: Employee
     {
         public string _officeName;
         public LawyerOffice _office;
@@ -47,7 +47,7 @@ namespace OfficeService
             string resutMessage;
             try
             {
-                var delivery = (ICoffeShopDelivery)DeliveryFactory.GetDelivery(order);
+                var delivery = (ICoffeShopDelivery)DeliveryFactory.GetFoodDelivery(order);
                 Task<List<string>> menu = delivery.GetMenu();
                 List<string> list = await menu;
                 Console.WriteLine("Ecco il Menu:");
@@ -80,5 +80,6 @@ namespace OfficeService
             Console.WriteLine(message);
            
         }
+      
     }
 }

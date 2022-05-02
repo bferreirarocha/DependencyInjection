@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace Translator.Abstraction
 {
-    public class ServiceManager: IServiceManager
+    public class ServiceManager: Employee, IServiceManager
     {
         public Lawyer _lawyer;
         public AbstractServicesFactory _factory;
-        public IDelivery delivery;
+        public IFoodDelivery delivery;
         public ITranslator translator;
         public ServiceManager(ILawyer _lawyer)
         {
@@ -18,10 +18,10 @@ namespace Translator.Abstraction
         {    // To be implemented
             return Task.CompletedTask;  
         }
-        public Task OrderCoffee(DeliveryType order, ILawyer lawyer) 
+        public Task Order(DeliveryType order, ILawyer lawyer) 
         {  // To be implemented
             return Task.CompletedTask;
-        }
+        }      
 
     }
 }
