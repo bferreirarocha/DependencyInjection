@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidLogger", "CovidLogger\CovidLogger.csproj", "{EB179E5B-062D-44AB-AF53-8937CA183B38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidLogger", "CovidLogger\CovidLogger.csproj", "{EB179E5B-062D-44AB-AF53-8937CA183B38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translator", "Translator\Translator.csproj", "{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeService", "Translator\OfficeService.csproj", "{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Translation.IoC", "TranslationService\Translation.IoC.csproj", "{D55AEF6F-359A-45F4-A918-DC896E31FD7C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationService", "Translation\TranslationService.csproj", "{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90F6C5A2-D7C1-4C6C-A69A-CF33FA5287DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55AEF6F-359A-45F4-A918-DC896E31FD7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55AEF6F-359A-45F4-A918-DC896E31FD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55AEF6F-359A-45F4-A918-DC896E31FD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55AEF6F-359A-45F4-A918-DC896E31FD7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D430EF7-C57C-4BB0-B28F-99A45DDB9835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
