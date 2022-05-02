@@ -1,10 +1,14 @@
-﻿using OfficeService.Contracts;
-
-namespace Translator.Abstraction
+﻿namespace Translator.Abstraction
 {
-    public abstract class OfficeService
+    public class AbstractServicesFactory
     {
-        public IDelivery delivery;
-        public ITranslator translator;
+        public DeliveryServicesFactory delivery;
+        public TranslatorServicesFactory translator;
+    }
+    public class DeliveryServicesFactory
+    {       
+    }
+    public class TranslatorServicesFactory
+    {        
     }
 }

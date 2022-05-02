@@ -1,4 +1,4 @@
-﻿namespace OfficeService.Implementaton
+﻿namespace OfficeService.Contracts
 {
     public interface ILawyer
     {

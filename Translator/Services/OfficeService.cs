@@ -43,21 +43,35 @@ namespace OfficeService
         }
         public async Task OrderCoffee(DeliveryType order, ILawyer lawyer)
         {
-              var delivery = DeliveryFactory.getDelivery(order);    
-              Task<List<string>> menu = delivery.GetMenu();
-              List<string> list = await menu;
-              Console.WriteLine("Ecco il Menu:");
-              list?.ForEach(x => Console.WriteLine("     "+x));
-              var choose = list.FirstOrDefault();
-              await Task.Delay(1000);
-              var result = await delivery.OrderCoffe(choose,Avvisami);
-
-            if (result)
+            bool result = false;
+            string resutMessage;
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                lawyer.GiveMeAFeedBack($"Ciao {lawyer.Name}. Il tuo caffe è arrviato!");
-                Console.ResetColor();
-            }           
+                var delivery = (ICoffeShopDelivery)DeliveryFactory.GetDelivery(order);
+                Task<List<string>> menu = delivery.GetMenu();
+                List<string> list = await menu;
+                Console.WriteLine("Ecco il Menu:");
+
+                list?.ForEach(x => Console.WriteLine("  -   " + x));
+                var choose = list.FirstOrDefault();
+                await Task.Delay(1000);
+
+                result = await delivery.OrderCoffe(choose, Avvisami);
+                resutMessage = $"Ciao {lawyer.Name}. Il tuo caffe è arrviato!";
+            }
+            catch (InvalidCastException)
+            {
+                resutMessage = "Impossibile trovare un Delivery che porta il caffe!";
+            }
+            catch (NullReferenceException)
+            {
+                resutMessage = "Non sono riscito a trovare la list del menu!";
+            }
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            lawyer.GiveMeAFeedBack(resutMessage);
+            Console.ResetColor();
+                   
            
         }
         void Avvisami(string message)
