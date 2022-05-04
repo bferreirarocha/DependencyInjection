@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace OfficeService.Contracts
 {
-    internal interface IDelivery
+    public interface IDelivery
     { 
-        DateTime ReturnDeliveryTime();
+        DateTime DeliveryTime();
         Task<bool> Deliver(object delivery);
         void GetOrder();
+    }
+    public enum DeliveryType
+    {
+        FOOD,
+        TRASLATION,
+        TASK
     }
 }

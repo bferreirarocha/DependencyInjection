@@ -11,6 +11,13 @@ namespace OfficeService.Implementaton
     {   
         public string Name { get; set; }
         public void Judget() { }
+        public void BringMeACoffee(OfficeManager oManger) { }
+        public void TranslateThis(OfficeManager oManger) { }
+        public Lawyer(string name)
+        {
+            Name=name;  
+        }
+        
     }
 
 }

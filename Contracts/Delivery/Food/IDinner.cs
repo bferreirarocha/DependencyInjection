@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OfficeService.Contracts
+namespace OfficeService.Contracts.Delivery
 {
-    public interface IEmployee
+    public interface IDinner
     {
-        void GiveMeAFeedBack(string message);       
+        Task<bool> MakeDinner(Action<string> action);
     }
 }

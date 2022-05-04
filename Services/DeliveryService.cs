@@ -4,29 +4,28 @@ using OfficeService.Implementaton;
 
 namespace OfficeService
 {
-    public class DeliveryFactory
+    public class DeliveryService
     {
-        public static IFoodDelivery GetFoodDelivery(DeliveryType order)
+        public static IFoodDelivery GetFoodDelivery(FoodDeliveryType order)
         {
             switch (order)
             {
-                case DeliveryType.COFFEE:
+                case FoodDeliveryType.COFFEE:
                     return new Starbucks();               
                 default:
                     return null;    
             }
         }
-        public static IOfficeTasks GetTasksDelivery(DocType doc)
+        public static IOfficeTasks GetTasksDelivery(TaskType doc)
         {
             switch (doc)
             {
-                case DocType.LEGAL:
+                case TaskType.LEGAL:
                     return (IOfficeTasks)new LegalTrainee();
                 default:
                     return null;
             }
-        }
-
+        }  
     }
     
 }

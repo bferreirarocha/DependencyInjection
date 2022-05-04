@@ -1,9 +1,9 @@
 ﻿using OfficeService.Contracts;
 using OfficeService.Implementation;
 
-namespace OfficeService.Abstraction
+namespace OfficeService.Services
 {
-    public class TranslatorFactory
+    public class TranslatorService
     {
 
         public static ITranslator getTranslator(Languages Laguage)
@@ -11,14 +11,14 @@ namespace OfficeService.Abstraction
             switch (Laguage)
             {
                 case Languages.ENGLISH:
-                    return new EnglishTranslator();                   
+                    return new EnglishTranslator();
                 case Languages.SPANISH:
-                    return new SpanishTranslator();                   
+                    return new SpanishTranslator();
                 case Languages.GERMAN:
-                    return new GermanTranslator();                   
+                    return new GermanTranslator();
                 default:
                     return null;
             }
-        }        
+        }
     }
 }

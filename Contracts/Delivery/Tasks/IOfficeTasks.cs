@@ -8,10 +8,10 @@ namespace OfficeService.Contracts
 {
     public interface IOfficeTasks
     {
-        void TakeDocs(DocType doc, string address);
-        void BringDocs();
+        void TakeTask(TaskType doc, string address);
+        void ReturnTask();
     } 
-    public enum DocType
+    public enum TaskType
     {
         LEGAL,
         INVOICES 

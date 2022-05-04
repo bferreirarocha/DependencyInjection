@@ -18,7 +18,7 @@ namespace Translator.Abstraction
         {    // To be implemented
             return Task.CompletedTask;  
         }
-        public Task Order(DeliveryType order, ILawyer lawyer) 
+        public Task Order(FoodDeliveryType order, ILawyer lawyer) 
         {  // To be implemented
             return Task.CompletedTask;
         }      
