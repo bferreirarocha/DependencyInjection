@@ -12,7 +12,7 @@ namespace OfficeService
         {
              Lawyer lawyer = new Lawyer("Miranda");
              LawyerOffice lawyerOfficeNY = new LawyerOffice("NY");
-             lawyerOfficeNY.BringACoffee(FoodDeliveryType.COFFEE, lawyer);
+             lawyerOfficeNY.OrderCoffee(FoodDeliveryType.COFFEE, lawyer);
              #region async
             //Lawyer lawyer = lawyerOfficeNY.Lawyers.Find(x => x.Name == "Miranda"); 
             //await Task.Run(() => lawyerOfficeNY.BringACoffee(DeliveryType.COFFEE));

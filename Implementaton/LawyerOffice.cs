@@ -13,23 +13,23 @@ namespace OfficeService.Implementaton
         public string _name { get; set; }
         public Lawyer Lawyer { get; set; } 
 
-        public OfficeManager _Service { get; set; }
+        public OfficeManager OfficeManager { get; set; }
 
-        public void BringACoffee(FoodDeliveryType order, Lawyer lawyer )
+        public void OrderCoffee(FoodDeliveryType order, Lawyer lawyer )
         {
-            Task t = _Service.OrderCoffee(order, lawyer);
+            Task t = OfficeManager.OrderCoffee(order, lawyer);
         }
         public  LawyerOffice(
            // List<Lawyer> lawyers,
             string Name)
         {
             //Lawyers = lawyers;
-            _Service = new OfficeManager(this);
-            _Service._officeName = _name;
+            OfficeManager = new OfficeManager(this);
+            OfficeManager._officeName = _name;  
         }
-        public void TranslateThis(Languages lang, Lawyer Lawyer, string text)
+        public void Translate(Languages lang, Lawyer Lawyer, string text)
         {
-            _Service.Translate(lang, text, Lawyer);
+            OfficeManager.Translate(lang, text, Lawyer);
         }
 
         

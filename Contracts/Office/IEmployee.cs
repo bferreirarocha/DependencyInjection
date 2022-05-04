@@ -8,7 +8,8 @@ namespace OfficeService.Contracts
 {
     public interface IEmployee
     {
-        void GiveMeAFeedBack(string message);       
+        void GiveFeedBack(string message);       
+        void AssignTask(string message);
     }
 }
     

@@ -12,17 +12,23 @@ namespace OfficeService.Implementaton
     public class Employee : IEmployee
     {
         
-        public void GiveMeAFeedBack(string message)
+        public void GiveFeedBack(string message)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(message);
+            Console.ResetColor();
+        }
+        public void AssignTask(string Task)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(Task);
             Console.ResetColor();
         }
         protected internal void OpenTheDoor(string message)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(message);
-            Console.ResetColor(); ;
+            Console.ResetColor(); ;     
         }
     }
 }

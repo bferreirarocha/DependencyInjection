@@ -13,21 +13,21 @@ using System.Threading.Tasks;
 namespace OfficeService
 {
 
-    public class OfficeManager: Employee
+    public class OfficeManager: Employee , ILawyerOffice
     {
         public string _officeName;
         public LawyerOffice _office;
-        public void Translate(Languages language, string text, ILawyer lawyer)
-        {    
-            string Translation = TranslatorService.getTranslator(language).Translate(text);
-            Thread.Sleep(2000);
-            lawyer.GiveMeAFeedBack("Il tuo testo è pronto: "+ Translation); // ->> accopiamento del nome della fuzione
-        }
-        public OfficeManager(LawyerOffice office)  
+        public OfficeManager(LawyerOffice office)
         {
             _office = office;
             _officeName = _office._name;
         }
+        public void Translate(Languages language, string text, ILawyer lawyer)
+        {    
+            string Translation = TranslatorService.getTranslator(language).Translate(text);
+            Thread.Sleep(2000);
+            lawyer.GiveFeedBack("Il tuo testo è pronto: "+ Translation); // ->> accopiamento del nome della fuzione
+        }       
         public async Task OrderCoffee(FoodDeliveryType order, ILawyer lawyer)
         {
             bool result = false;
@@ -56,7 +56,7 @@ namespace OfficeService
             }
 
             Console.ForegroundColor = ConsoleColor.Blue;
-            lawyer.GiveMeAFeedBack(resutMessage);
+            lawyer.GiveFeedBack(resutMessage);
             Console.ResetColor();
                    
            
@@ -64,8 +64,7 @@ namespace OfficeService
         void Avvisami(string message)
         {
             Console.ResetColor();   
-            Console.WriteLine(message);
-           
+            Console.WriteLine(message);           
         }
       
     }
