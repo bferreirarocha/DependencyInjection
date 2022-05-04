@@ -8,28 +8,25 @@ using System.Threading.Tasks;
 namespace OfficeService.Implementaton
 {
    
-    public  class LawyerOffice : ILawyerOffice
+    public  class LawyerOffice : IOfficeServices
     {
         public string _name { get; set; }
         public Lawyer Lawyer { get; set; } 
 
         public OfficeManager OfficeManager { get; set; }
 
-        public void OrderCoffee(FoodDeliveryType order, Lawyer lawyer )
+        public  async Task OrderCoffee(FoodDeliveryType order, ILawyer lawyer)
         {
-            Task t = OfficeManager.OrderCoffee(order, lawyer);
+            Task t =  OfficeManager.OrderCoffee(order, lawyer);
         }
-        public  LawyerOffice(
-           // List<Lawyer> lawyers,
-            string Name)
+        public  LawyerOffice(string Name)
         {
-            //Lawyers = lawyers;
             OfficeManager = new OfficeManager(this);
             OfficeManager._officeName = _name;  
         }
-        public void Translate(Languages lang, Lawyer Lawyer, string text)
+        public void Translate(Languages language, string text, ILawyer lawyer)
         {
-            OfficeManager.Translate(lang, text, Lawyer);
+            OfficeManager.Translate(language, text, Lawyer);
         }
 
         

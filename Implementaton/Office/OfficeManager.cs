@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace OfficeService
 {
 
-    public class OfficeManager: Employee , ILawyerOffice
+    public class OfficeManager: Employee , IOfficeServices
     {
         public string _officeName;
         public LawyerOffice _office;

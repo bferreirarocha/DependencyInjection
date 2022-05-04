@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OfficeService
 {
-    public interface ILawyerOffice
+    public interface IOfficeServices
     {
         Task OrderCoffee(FoodDeliveryType order, ILawyer lawyer);
         void Translate(Languages language, string text, ILawyer lawyer);
