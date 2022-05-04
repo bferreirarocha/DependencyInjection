@@ -9,13 +9,23 @@ namespace OfficeService.Implementaton
 {
     public class Lawyer : Employee, ILawyer
     {   
-        public string Name { get; set; }
-        public void Judget() { }
-        public void BringMeACoffee(OfficeManager oManger) { }
-        public void TranslateThis(OfficeManager oManger) { }
-        public Lawyer(string name)
+        public void Judge() { }
+        public void BringMeACoffee(FoodDeliveryType food) 
         {
-            Name=name;  
+            _ = _Office.OrderCoffee(food, this);
+        }
+        //public async Task TranslateThis(Languages language, String text) {
+        //     await Task.Run(()=> _Office.Translate(language, text, this));
+        //}
+        public void  TranslateThis(Languages language, String text)
+        {
+             _Office.Translate(language, text, this);
+        }
+
+        public Lawyer(string name, LawyerOffice Office, EmployeeType EmployeeType, EmployeeType Boss)
+            :base(name, Office, EmployeeType, Boss)
+        {             
+            
         }
         
     }

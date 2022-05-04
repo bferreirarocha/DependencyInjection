@@ -17,18 +17,25 @@ namespace OfficeService
     {
         public string _officeName;
         public LawyerOffice _office;
-        public OfficeManager(LawyerOffice office)
+
+        public OfficeManager(
+            string name,
+            LawyerOffice Office, 
+            EmployeeType EmployeeType, 
+            EmployeeType Boss
+            )
+           : base(name, Office, EmployeeType, Boss)
         {
-            _office = office;
-            _officeName = _office._name;
+            _office = Office;
+            _office._OfficeManager =    this;
         }
-        public void Translate(Languages language, string text, ILawyer lawyer)
+        public async Task Translate(Languages language, string text, Lawyer lawyer)
         {    
-            string Translation = TranslatorService.getTranslator(language).Translate(text);
-            Thread.Sleep(2000);
-            lawyer.GiveFeedBack("Il tuo testo è pronto: "+ Translation); // ->> accopiamento del nome della fuzione
+               string Translation = TranslatorService.getTranslator(language).Translate(text);
+                await Task.Delay(20000);
+               lawyer.GiveFeedBack("Il tuo testo è pronto: "+ Translation); // ->> accopiamento del nome della fuzione
         }       
-        public async Task OrderCoffee(FoodDeliveryType order, ILawyer lawyer)
+        public async Task OrderCoffee(FoodDeliveryType order, Lawyer lawyer)
         {
             bool result = false;
             string resutMessage;

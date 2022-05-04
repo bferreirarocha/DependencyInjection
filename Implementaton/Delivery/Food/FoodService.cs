@@ -42,5 +42,49 @@ namespace Deliveries
         public abstract Task<List<string>> GetMenu();  
 
     }
+    //public class CoffeService : FoodService, ICoffeShop
+    //{  
+    //    string _name { get; set; }   
+    //    enum MENU
+    //    {
+          
+    //    }
+    //    public CoffeService(string Name) : base() 
+    //    {
+    //        _name = Name;
+    //    }
+    //    public async Task<bool> MakeLunch(Action<string> action)
+    //    {
+    //        string message;
+    //        Console.ForegroundColor = ConsoleColor.Yellow;
+    //        Console.WriteLine($"Ordine del caffe efettuato con  {_name}..");
+    //        Console.WriteLine($"Arriva alle ore {base.ReturnDeliveryTime()}");
+    //        Task<bool> t = Deliver(_name);
+    //        var result = await t;
+
+    //        if (result)
+    //        {
+    //            message = " CITOFONO -> Il tuo ordine è stato consegnto";
+    //            action(message);
+    //            await Task.Delay(5000);
+    //            return true;
+    //        }
+    //        else
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //    public override async Task<List<string>> GetMenu()
+    //    {
+    //        List<string> menu = new List<string>();
+    //        await Task.Delay(5000);
+    //        foreach (string name in Enum.GetNames(typeof(MENU)))
+    //        {
+    //            menu.Add(name);
+    //        }
+    //        return menu;
+    //        // return Enum.GetValues(typeof(MENU));
+    //    }
+    //}
 
 }

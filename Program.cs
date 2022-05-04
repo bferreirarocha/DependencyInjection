@@ -10,18 +10,39 @@ namespace OfficeService
     {
         static async Task Main(string[] args)
         {
-             Lawyer lawyer = new Lawyer("Miranda");
-             LawyerOffice lawyerOfficeNY = new LawyerOffice("NY");
-             lawyerOfficeNY.OrderCoffee(FoodDeliveryType.COFFEE, lawyer);
-             #region async
+             LawyerOffice lawyerOfficeNY = new LawyerOffice("NY");  
+             
+          
+            OfficeManager OManager = new OfficeManager(
+                 "Emily", 
+                 lawyerOfficeNY, 
+                 EmployeeType.OFFICEMANAGER, 
+                 EmployeeType.LAWYER
+                 );
+            
+
+            Lawyer Miranda = new Lawyer(
+                "Miranda",
+                lawyerOfficeNY,                 
+                EmployeeType.LAWYER,
+                EmployeeType.LAWYER
+                );
+
+               Miranda.TranslateThis(Languages.GERMAN, "HALO");
+            // Miranda.TranslateThis(Languages.GERMAN, "HALO");
+            await  Task.Run(() => Miranda.BringMeACoffee(FoodDeliveryType.COFFEE));
+
+
+            #region async
             //Lawyer lawyer = lawyerOfficeNY.Lawyers.Find(x => x.Name == "Miranda"); 
             //await Task.Run(() => lawyerOfficeNY.BringACoffee(DeliveryType.COFFEE));
             //await Task.Run(() =>lawyerOfficeNY.TranslateThis(Languages.SPANISH, " Hola!"));            ;
             #endregion
 
-            Console.ReadKey();  
-                
+            Console.ReadKey();                  
+            
         }
+        
     }
    
    

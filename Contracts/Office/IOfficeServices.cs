@@ -7,8 +7,8 @@ namespace OfficeService
 {
     public interface IOfficeServices
     {
-        Task OrderCoffee(FoodDeliveryType order, ILawyer lawyer);
-        void Translate(Languages language, string text, ILawyer lawyer);
+        Task OrderCoffee(FoodDeliveryType order , Lawyer lawyer);
+        Task Translate(Languages language, string text, Lawyer lawyer);
     }
    
 

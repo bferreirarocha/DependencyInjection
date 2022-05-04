@@ -10,6 +10,13 @@ namespace OfficeService.Contracts
     {
         void GiveFeedBack(string message);       
         void AssignTask(string message);
+        void DoTask(string message);
+    }
+    public enum EmployeeType
+    {
+        LAWYER,
+        OFFICEMANAGER
+        
     }
 }
     
